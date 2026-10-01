@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; }
+  body { width: 320px; margin: 0; padding: 14px; font-family: Inter, system-ui, sans-serif; font-size: 13px; color: #c3c9d4; background: #101216; }
+  h2 { margin: 0 0 2px; font-size: 15px; color: #e5e7eb; font-weight: 600; letter-spacing: .02em; }
+  p.sub { margin: 0 0 10px; color: #6b7280; font-size: 12px; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+  .tabs button { flex: 1; padding: 8px; border: 1px solid #2e3440; background: #1a1e24; color: #8b93a1; border-radius: 8px; cursor: pointer; font-weight: 700; }
+  .tabs button.active { background: #2a2f38; color: #e5e7eb; border-color: #3b4252; }
+  input[type=text], input[type=password] { width: 100%; padding: 9px 10px; border: 1px solid #2e3440; background: #1a1e24; color: #e5e7eb; border-radius: 8px; font-size: 13px; margin-bottom: 8px; }
+  button.primary { width: 100%; padding: 10px; background: #2a2f38; color: #e5e7eb; border: 1px solid #3b4252; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 700; }
+  button.primary:disabled { opacity: .6; cursor: wait; }
+  button.ghost { width: 100%; padding: 8px; margin-top: 6px; background: #1a1e24; border: 1px solid #2e3440; color: #8b93a1; border-radius: 8px; cursor: pointer; }
+  #status { margin-top: 8px; padding: 8px; border-radius: 8px; background: #14161b; color: #8b93a1; font-size: 12px; min-height: 20px; }
+  #status.ok { color: #6ee7a0; } #status.err { color: #e06868; }
+  .hint { font-size: 11px; color: #6b7280; margin-top: 8px; line-height: 1.5; }
+  .row { display: flex; gap: 6px; }
+  .row button { flex: 1; padding: 7px; border-radius: 8px; border: 1px solid #2e3440; background: #1a1e24; color: #c3c9d4; cursor: pointer; font-size: 12px; }
+  a { color: #8b93a1; text-decoration: none; }
+</style>
+</head>
+<body>
+  <h2>Zenith</h2>
+  <p class="sub">Gemini-only • lokal • tanpa bot join</p>
+  <div class="tabs">
+    <button id="tab-wg" class="active">Wayground</button>
+    <button id="tab-kh">Kahoot</button>
+  </div>
+  <input id="gemini" type="password" placeholder="Gemini API key (wajib 1x)…" />
+  <div class="row" style="margin-bottom:8px">
+    <button id="save">Simpan Key</button>
+    <button id="test">Tes Key</button>
+  </div>
+  <input id="pin" type="text" placeholder="Link quiz / quiz ID (opsional)…" />
+  <button id="go" class="primary">Ambil + Selesaikan ✨</button>
+  <button id="show" class="ghost">Selesaikan soal di tab aktif</button>
+  <div id="status">Isi key 1x → join game seperti biasa → jawaban AI muncul otomatis di panel. Tanpa join bot.</div>
+  <div class="hint">
+    • Dapat key gratis: <a href="https://aistudio.google.com/api-keys" target="_blank">Google AI Studio</a>.<br/>
+    • PIN live: <b>join dulu di tab</b>, extension baca soal dari trafikmu sendiri lalu selesaikan batch 1x (±2–6 dtk / 20 soal), habis itu pindah soal instan (cache lokal).<br/>
+    • Link/ID quiz publik: bisa langsung tanpa join.<br/>
+    • Key cuma di <b>chrome.storage lokal</b>, nggak ke server siapa-siapa kecuali Google.
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Zenith — Study Assistant (Gemini, Local)",
+  "version": "2.4.2",
+  "description": "Baca soal dari tab gamemu sendiri lalu selesaikan pakai Gemini. Key milikmu, tersimpan lokal.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://wayground.com/*",
+    "https://*.wayground.com/*",
+    "https://quizizz.com/*",
+    "https://*.quizizz.com/*",
+    "https://kahoot.it/*",
+    "https://*.kahoot.it/*",
+    "https://create.kahoot.it/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://kahoot.it/*",
+        "https://*.kahoot.it/*",
+        "https://*.wayground.com/*",
+        "https://*.quizizz.com/*",
+        "https://*.kahoot.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Zenith"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
